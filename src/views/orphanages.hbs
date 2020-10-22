@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localize um orfanato | Happy</title>
     <!-- link que adiciona o favicon -->
-    <link rel="icon" href="../../public/images/logo-icon.png">
+    <link rel="icon" href="/images/logo-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/css/main.css">
-    <link rel="stylesheet" href="../../public/css/animations.css">
-    <link rel="stylesheet" href="../../public/css/page-orphanages.css">
-    <link rel="stylesheet" href="../../public/css/buttons.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/page-orphanages.css">
+    <link rel="stylesheet" href="/css/buttons.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
@@ -21,29 +21,51 @@
 <body>
     <div id="page-orphanages">
         <aside class="animate-right">
-
+            
         
         
             <header>
-                <img src="../../public/images/map-marker.svg" alt="happy">
+                <img src="/images/map-marker.svg" alt="happy">
                 <h2>
                     Escolha um orfanato no mapa
                 </h2>
                 <p> Muitas crianças estão esperando sua visita</p>
             </header>
             <footer>
+                
                 <strong>Suzano</strong>
-                <span>Sao Paulo</span>
+                <p>Sao Paulo</p>
+                {{!-- <button onclick="history.back()">
+                  <img src="/images/arrow-back.svg" alt="voltar">
+              </button> --}}
             </footer>
         </aside>
         <div id="mapid" class="animate-appear">
-            <a href="create-orphanage.html" class="create-orphanage" title="Cadastre um orfanato">
-                <img src="../../public/images/plus.svg" alt="criar orfanato">
+            <div class="orphanages">
+                {{#each orphanages}}
+
+                <span hidden 
+                    data-id="{{this.id}}"
+                    data-name="{{this.name}}"
+                    data-lat="{{this.lat}}"
+                    data-lng="{{this.lng}}"
+                    >
+
+                </span>
+                {{/each}}
+
+
+            </div>
+
+
+
+            <a href="/create-orphanage" class="create-orphanage" title="Cadastre um orfanato">
+                <img src="/images/plus.svg" alt="criar orfanato">
             </a>
 
         </div>
         
     </div>
-    <script src="../../public/scripts/page-orphanages.js">    </script>
+    <script src="/scripts/page-orphanages.js">    </script>
 </body>
 </html>

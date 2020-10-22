@@ -26,7 +26,8 @@ const icon = L.icon({
     popupAnchor:[170,2]
 })
 
-
+//const spanLat = document.querySelector('span[data-lat]')
+//const spanLng = document.querySelector('span[data-lng]')
 
 L.marker([-23.5605429,-46.3145073],{icon})
     .addTo(map)
@@ -35,7 +36,7 @@ L.marker([-23.5605429,-46.3145073],{icon})
 
     function selectImage(event){
         const button = event.currentTarget
-
+        console.log(button.children)
         //remover todas as classes selecionadas 
         const buttons = document.querySelectorAll(".images button")
         buttons.forEach((button)=>{
